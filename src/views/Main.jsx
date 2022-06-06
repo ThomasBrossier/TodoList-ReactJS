@@ -5,6 +5,10 @@ const Main = () => {
   return (
     <div className={style.container}>
       <TodoList title="un titre"/>
+      <TodoList title="un titre"/>
+      <TodoList title="un titre"/>
+      <TodoList title="un titre"/>
+      <TodoList title="un titre"/>
     </div>
   )
 }
