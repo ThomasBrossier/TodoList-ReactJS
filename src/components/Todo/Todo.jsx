@@ -1,4 +1,5 @@
 import React from 'react'
+import CloseButton from '../buttons/CloseButton';
 import style from "./todo.module.scss";
 
 const Todo = () => {
@@ -6,7 +7,7 @@ const Todo = () => {
     <li className={style.todoTask}>
         <input className={style.checkTodo} type="checkbox" name="" id="" />
         <span>Test</span>
-        <button className={style.removeTask}>X</button>
+        <CloseButton/>
     </li>
   )
 }
