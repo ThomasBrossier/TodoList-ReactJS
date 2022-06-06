@@ -1,10 +1,11 @@
 import React from 'react'
+import AddList from './AddList'
 import style from './topBar.module.scss'
 
 const TopBar = () => {
   return (
     <div className={style.wrapper}>
-            <button type="button" className={style.addListButton}>Ajouter une liste</button>
+            <AddList/>
     </div>
   )
 }

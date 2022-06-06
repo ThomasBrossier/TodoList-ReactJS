@@ -1,21 +1,18 @@
 import React from 'react'
 import style from './todoList.module.scss';
 import Todo from '../todo/Todo'; 
-import CloseButton from '../buttons/CloseButton';
+import DeleteButton from '../buttons/DeleteButton';
 
-const TodoList = ({title}) => {
+const TodoList = ({id, title,tasks}) => {
   return (
     <div className={style.container}>
         <div className={style.header}>
-          <div className={style.title}>{title}</div>
-          <CloseButton/>
-          
+          <div className={style.title}>{id + "/ " + title}</div>
+          <DeleteButton id={id} typeToDelete="list"/>
         </div>
         <div className={style.todoList}>
             <ul>
-               <Todo />
-                <Todo />
-                <Todo />
+              {tasks.map(task=> <Todo key={task.id} id={task.id} title={task.title} done={task.done}/>)}
             </ul>
         </div>
         

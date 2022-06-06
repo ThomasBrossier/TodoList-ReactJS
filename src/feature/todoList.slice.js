@@ -1,20 +1,24 @@
-import { createSlice } from "@reduxjs/toolkit";
-
+import { createSlice ,current} from "@reduxjs/toolkit";
+import { datas } from "../fakedata";
 export const todoListSlice = createSlice({
-    name : "todoListSlice",
-    initialState :{},
+    name : "Lists",
+    initialState :{lists : [], idListCount : 1} ,
+    //datas
     reducers : {
         callDatas : (state, action)=>{
             state.data = action.payload
         },
         addList : (state, action)=>{
-            state.data.lists.push(action.payload);
+            state.lists.push(action.payload);
         },
         removeList :(state,action)=>{
-            state.data.lists.filter((list)=>list.id !== action.payload)
-        }
+            state.lists = state.lists.filter((list)=>list.id !== action.payload)
+        },
+        incrementIdList :(state)=>{
+            state.idListCount++
+        } 
     }
 })
 
-export const {callDatas,addList,removeList} = todoListSlice.actions;
+export const {callDatas,addList,removeList,incrementIdList} = todoListSlice.actions;
 export default todoListSlice.reducer
