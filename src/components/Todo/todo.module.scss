@@ -1,0 +1,19 @@
+.todoTask{
+    list-style: none;
+    background-color: #ffe659;
+    border-radius: 2px;
+    padding:0.3rem;
+    margin: 0.3rem 0.2rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    .checkTodo{
+        accent-color: #ffe659 ;
+        width: 1.3rem;
+        height: 1.3rem;
+        cursor: pointer;
+        vertical-align: middle;
+      }
+    
+}

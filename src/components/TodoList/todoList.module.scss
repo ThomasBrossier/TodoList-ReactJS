@@ -1,0 +1,27 @@
+.container{
+    background-color : var(--todolist);
+    width : 250px;
+    height: 300px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    transition: all 0.2s;
+    &:hover{
+      transform: scale(1.05);
+      transition: all 0.2s;
+    }
+    .header{
+        display: inline-flex;
+        background : var(--todolist-header);
+        color: var(--primary);
+        align-items: center;
+        font-weight: 600;
+        justify-content: space-between;
+        padding: 0.5rem ;
+        }
+
+    ul{
+        list-style-type: none;
+        padding: 0;
+    }
+}
