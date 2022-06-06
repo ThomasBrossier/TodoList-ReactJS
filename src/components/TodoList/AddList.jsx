@@ -1,5 +1,4 @@
 import React from 'react'
-import { createRef } from 'react';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
@@ -34,7 +33,7 @@ const AddList = () => {
   }
   const activeView = (
     <>
-      <input  type="text" onChange={(e)=>handleInputChange(e)} />
+      <input type="text" value={value} onChange={(e)=>handleInputChange(e)} />
       <button type="button" className={style.createList} onClick={()=>addNewList()}>Ajouter une liste</button>
       <DeleteButton typeToDelete="" updateview={updateview}/>
     </>
