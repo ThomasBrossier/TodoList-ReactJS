@@ -1,0 +1,20 @@
+.screenfilter{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: rgba(0,0,0,0.7);
+    .wrapper{
+        width : 500px;
+        height: 600px;
+        padding: 1rem;
+        background-color: var(--light);
+        header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+}

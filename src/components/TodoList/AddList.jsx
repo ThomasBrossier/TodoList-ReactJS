@@ -35,7 +35,7 @@ const AddList = () => {
     <>
       <input type="text" value={value} onChange={(e)=>handleInputChange(e)} />
       <button type="button" className={style.createList} onClick={()=>addNewList()}>Ajouter une liste</button>
-      <DeleteButton typeToDelete="" updateview={updateview}/>
+      <DeleteButton typeToDelete="addlist" updateview={updateview}/>
     </>
   )
 
