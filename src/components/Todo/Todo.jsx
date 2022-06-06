@@ -6,7 +6,7 @@ const Todo = () => {
     <li className={style.todoTask}>
         <input className={style.checkTodo} type="checkbox" name="" id="" />
         <span>Test</span>
-        <button>Supprimer</button>
+        <button className={style.removeTask}>X</button>
     </li>
   )
 }

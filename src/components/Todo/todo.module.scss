@@ -15,5 +15,14 @@
         cursor: pointer;
         vertical-align: middle;
       }
+      .removeTask{
+        background: none;
+        border: none;
+        font-size: 1.1rem;
+        &:hover{
+          color: red;
+          cursor: pointer;
+        }
+      }
     
 }
