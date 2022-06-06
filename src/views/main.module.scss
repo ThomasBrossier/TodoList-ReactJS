@@ -1,7 +1,12 @@
 .container{
+    display: flex;
+    flex-flow: column;
+}
+.board{
     background-color: var(--light);
     min-height:calc(100vh - 85px);
     display: flex;
     flex-flow: row wrap;
     padding: 1rem;
 }
+
