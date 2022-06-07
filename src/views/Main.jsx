@@ -10,9 +10,9 @@ const Main = () => {
       <div >
          <TopBar/>
       </div>
-     <div className={style.board}>
-       {lists.map(list=> <TodoList key={list.id} id={list.id} tasks={list.tasks} title={list.title}/> )}
-      </div> 
+      <div className={style.board}>
+        {lists.map(list=> <TodoList key={list.id} id={list.id} tasks={list.tasks} title={list.title}/> )}
+        </div> 
     </div>
   )
 }

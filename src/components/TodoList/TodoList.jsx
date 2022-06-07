@@ -29,8 +29,8 @@ const TodoList = ({id, title,tasks}) => {
                done : false    
             }
       }
-      setAddTaskInput("")
-      dispatch(addTask(payload))
+      setAddTaskInput("");
+      dispatch(addTask(payload));
     }
   }
   return (
