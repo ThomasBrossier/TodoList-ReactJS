@@ -26,9 +26,14 @@ export const todoListSlice = createSlice({
         removeTask : (state,action)=>{
             const index = state.lists.findIndex((list)=> list.id === action.payload.idList)
             state.lists[index].tasks = state.lists[index].tasks.filter(task=> task.id !== action.payload.idTask)
+        },
+        toggleTask : (state, action)=>{
+            const indexList = state.lists.findIndex((list)=> list.id === action.payload.idList)
+            const indexTask = state.lists[indexList].tasks.findIndex((task => task.id === action.payload.idTask))
+            state.lists[indexList].tasks[indexTask].done = !state.lists[indexList].tasks[indexTask].done;
         }
     }
 })
 
-export const {callDatas,addList,removeList,incrementIdList,setCurrentList,addTask,removeTask} = todoListSlice.actions;
+export const {callDatas,addList,removeList,incrementIdList,setCurrentList,addTask,removeTask, toggleTask} = todoListSlice.actions;
 export default todoListSlice.reducer
