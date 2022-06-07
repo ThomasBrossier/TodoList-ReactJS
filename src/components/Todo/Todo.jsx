@@ -4,6 +4,7 @@ import DeleteButton from '../buttons/DeleteButton';
 import style from "./todo.module.scss";
 import { removeTask, toggleTask } from '../../feature/todoList.slice';
 import { useSelector } from 'react-redux';
+import { useState } from 'react';
 
 
 const Todo = ({idTask,idList, title, done}) => {
@@ -24,8 +25,7 @@ const Todo = ({idTask,idList, title, done}) => {
   return (
     <li className={style.todoTask}>
         <input className={style.checkTodo} type="checkbox"  checked={isTaskDone}  onChange={e=>toggleCurrentTask(e)} /> 
-        {/* checked={done? true:false} */}
-        <span>{title}</span>
+        <span className={isTaskDone ? style.crossedOut : style.normal}>{title}</span>
         <DeleteButton typeToDelete="task" idList={idList} idTask={idTask} action={(e)=>removeCurrentTask(e)}/>
     </li>
   )
