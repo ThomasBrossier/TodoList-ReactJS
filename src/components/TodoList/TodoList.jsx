@@ -2,14 +2,14 @@ import React from 'react'
 import style from './todoList.module.scss';
 import Todo from '../todo/Todo'; 
 import DeleteButton from '../buttons/DeleteButton';
- import useModal from '../modal/useModal'
-import Modal from '../modal/Modal';
+//  import useModal from '../modal/useModal'
+// import Modal from '../modal/Modal';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addTask } from '../../feature/todoList.slice';
 const TodoList = ({id, title,tasks}) => {
 
-  const { isShowing, toggle } = useModal();
+  // const { isShowing, toggle } = useModal();
   const [addTaskBloc, showAddTaskBloc] = useState(false);
   const [addTaskInput, setAddTaskInput]= useState("")
   const dispatch = useDispatch();
@@ -35,7 +35,7 @@ const TodoList = ({id, title,tasks}) => {
   }
   return (
     
-    <div className={style.container} onClick={()=>toggle()}>
+    <div className={style.container}>
         
             <div className={style.header}>
               <div className={style.title}>{title}</div>

@@ -4,7 +4,6 @@ import DeleteButton from '../buttons/DeleteButton';
 import style from "./todo.module.scss";
 import { removeTask, toggleTask } from '../../feature/todoList.slice';
 import { useSelector } from 'react-redux';
-import { useState } from 'react';
 
 
 const Todo = ({idTask,idList, title, done}) => {
