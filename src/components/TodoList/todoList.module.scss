@@ -13,7 +13,6 @@
     }
     .header{
         display: inline-flex;
-        background : var(--todolist-header);
         color: var(--primary);
         align-items: center;
         font-weight: 600;
@@ -29,5 +28,32 @@
         overflow-y: auto;
       scrollbar-color: var(--post-it-header) var(--third);
       scrollbar-width: thin;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: flex-start;
+      align-items: center;
+    }
+    .modifyList{
+      text-align: center;
+      justify-self: center;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: flex-start;
+      height: 100%;
+      width:100%;
+      cursor: pointer;
+      &:hover{
+        background-color: rgba($color: #000000, $alpha: 0.4);
+        z-index: 999;
+        span{
+          display: block;
+        }
+      }
+      span{
+        margin-top: 4rem;
+        font-size: 3rem;
+        color: var(--font-light);
+        display: none;
+      }
     }
 }

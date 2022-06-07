@@ -1,9 +1,8 @@
-import { createSlice ,current} from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { datas } from "../fakedata";
 export const todoListSlice = createSlice({
     name : "Lists",
-    initialState :{lists : [], idListCount : 1, isModalActive: false} ,
-    //datas
+    initialState :datas ,
     reducers : {
         callDatas : (state, action)=>{
             state.data = action.payload
@@ -17,11 +16,11 @@ export const todoListSlice = createSlice({
         incrementIdList :(state)=>{
             state.idListCount++
         },
-        toggleModal : (state)=>{
-            state.isModalActive = !state.isModalActive
+        setCurrentList : (state, action)=>{
+            state.currentList = action.payload;
         }
     }
 })
 
-export const {callDatas,addList,removeList,incrementIdList,toggleModal} = todoListSlice.actions;
+export const {callDatas,addList,removeList,incrementIdList,setCurrentList} = todoListSlice.actions;
 export default todoListSlice.reducer

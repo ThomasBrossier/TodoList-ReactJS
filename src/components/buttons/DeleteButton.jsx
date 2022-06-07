@@ -1,21 +1,21 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import style from './deleteButton.module.scss'
-import {removeList, toggleModal} from '../../feature/todoList.slice'
+import {removeList} from '../../feature/todoList.slice'
 
 const DeleteButton = ({typeToDelete,id,updateview}) => {
   const dispatch = useDispatch();
 
   const removeAction = (e)=>{
-    if(typeToDelete === 'list'){
-      dispatch(removeList(id))
-    }else if (typeToDelete ==="task"){
-
-    }else if(typeToDelete === "addlist" ){
-      updateview(e)
-    }else{
-      updateview()
-    }
+    switch (typeToDelete){
+      case 'list' : dispatch(removeList(id));
+        break;
+      case 'task' : ; 
+        break;
+      case 'addlist':  updateview(e);
+        break;  
+      default : break;
+    }  
   }
   return (
     <button className={style.btnDelete} onClick={(e)=>removeAction(e)}>X</button>
