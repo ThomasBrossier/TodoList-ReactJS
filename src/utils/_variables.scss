@@ -1,16 +1,18 @@
 :root {
 /* Global */
 --main : #244aed;
+--main-darker : #133ae5;
 --light :#f5f6fa ;
 --dark : #282828;
 --grey :#282828;
 
 /* TodoList*/
 --todolist: #fae884;
---todolist-header  : #ffe659;
-
+--todolist-header  : rgb(255, 230, 89);
+--todoTask : rgba(255, 200, 89,0.3);
+--todoTaskHover : rgba(255,150, 89,0.3);
 /*Font*/
---font-light : #CCCCCC;
+--font-light : white;
 --font-dark : #3c3c3c;
 --font-family : 'Poppins', sans-serif;
 
@@ -18,4 +20,13 @@
 --btn-primary : ;
 --btn-secondary : ;
 
+    input{
+        border-radius: 6px ;
+    }
+    button{
+        border-radius: 7px;
+        padding: 0 0.8rem;
+        border: none;
+        background-color: none;
+    }
 }

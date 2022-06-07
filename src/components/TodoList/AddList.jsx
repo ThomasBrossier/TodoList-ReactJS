@@ -8,7 +8,6 @@ import style from './addList.module.scss';
 
 const AddList = () => {
   const dispatch =useDispatch();
-  let countId = useSelector(state=> state.idListCount)
   const [active, setActive]= useState(false)
   const [value, setValue] = useState("")
   const updateview = (e)=>{
@@ -20,7 +19,7 @@ const AddList = () => {
       return
     }
     const list = {
-      id : countId,
+      id : Math.floor(Math.random()*10000),
       title: value,
       tasks : []
     }
@@ -35,7 +34,7 @@ const AddList = () => {
     <>
       <input type="text" value={value} onChange={(e)=>handleInputChange(e)} />
       <button type="button" className={style.createList} onClick={()=>addNewList()}>Ajouter une liste</button>
-      <DeleteButton typeToDelete="addlist" updateview={updateview}/>
+      <DeleteButton typeToDelete="addlist" action={updateview}/>
     </>
   )
 

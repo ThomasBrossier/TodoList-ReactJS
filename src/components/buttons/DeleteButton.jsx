@@ -3,16 +3,16 @@ import { useDispatch } from 'react-redux'
 import style from './deleteButton.module.scss'
 import {removeList} from '../../feature/todoList.slice'
 
-const DeleteButton = ({typeToDelete,id,updateview}) => {
+const DeleteButton = ({typeToDelete,idTask,idList, action }) => {
   const dispatch = useDispatch();
 
   const removeAction = (e)=>{
     switch (typeToDelete){
-      case 'list' : dispatch(removeList(id));
+      case 'list' : dispatch(removeList(idList));
         break;
-      case 'task' : ; 
+      case 'task' : action(e) ; 
         break;
-      case 'addlist':  updateview(e);
+      case 'addlist':  action(e);
         break;  
       default : break;
     }  
