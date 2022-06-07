@@ -19,18 +19,6 @@ export const datas = {
                 id: Math.floor(Math.random()*1000000),
                 title:"Reunion le 15/06 à 15h",
                 done : false
-            },{
-                id: Math.floor(Math.random()*1000000),
-                title:"Reunion le 15/06 à 15h",
-                done : false
-            },{
-                id: Math.floor(Math.random()*1000000),
-                title:"Reunion le 15/06 à 15h",
-                done : false
-            },{
-                id: Math.floor(Math.random()*1000000),
-                title:"Reunion le 15/06 à 15h",
-                done : false
             }],
         },{
             id :  Math.floor(Math.random()*1000),
