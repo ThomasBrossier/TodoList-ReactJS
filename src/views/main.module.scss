@@ -1,11 +1,11 @@
 .container{
+    width: 100vw;
     display: flex;
     flex-flow: column;
 }
 .board{
-    background-color: var(--light);
     display: flex;
     flex-flow: row wrap;
-    padding: 1rem;
+    padding: 0.5rem 0.7rem;
 }
 
