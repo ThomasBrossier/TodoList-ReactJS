@@ -1,4 +1,15 @@
+@use '../../utils/mixins';
+
 .container{
+    @include mixins.large {
+        width : 30%;
+        &:hover{
+            box-shadow: 0px 10px 20px 5px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+    }
+    width : 100%;
+    min-height : 70px;
     padding: 0.8rem;
     display: flex;
     flex-flow: row;
@@ -8,40 +19,52 @@
     align-items: center;
     border-radius: 5px;
     background-color: rgba(0,0,0,0.2);
-    &:hover{
-        box-shadow: 0px 10px 20px 5px rgba(0, 0, 0, 0.2);
-        cursor: pointer;
-    }
+    
     &Active{
+        @include mixins.large{
+            display: flex;
+            flex-flow: row nowrap;
+            width: auto;
+            &:hover{
+                box-shadow: 0px 10px 20px 5px rgba(0, 0, 0, 0.2);
+            }
+        }
         background-color: rgba(0,0,0,0.2);
-        height: 100%;
-        width : 40%;
+        width: 100%;
         padding:1rem;
         border-radius: 5px;
         cursor :default;
         display: flex;
-        flex-flow: row nowrap;
-        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
         margin-top: 1rem;
-        &:hover{
-            box-shadow: 0px 10px 20px 5px rgba(0, 0, 0, 0.2);
+        .buttons{
+            @include mixins.large{
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 0;
+            }
+            display: flex;
+            width: 100%;
+            margin-top: 1rem;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
         }
         input{
-            width : 50%;
-            border-radius: 5px;
-            padding: 0.3rem;
+            width : 95%;
         }
         .createList{
-            padding: 0.8rem 1.5rem;
-            margin: 0 1rem;
-        }   
+            @include mixins.large{
+                padding: 0.2rem 1.9rem;
+                margin: 0 1rem;
+                &:hover{
+                    background-color:var(--main) ;
+                    color: var(--font-light);
+                }
+            } 
+
+        } 
     }  
-    .addListButton{
-        padding: 0.5rem 1.5rem;
-        font-size: 1.2rem;
-        background-color: var(--main);
-        color:white;
-        border-radius: 5px;
-        border: 0;
-    }
+    
 }

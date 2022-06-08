@@ -32,8 +32,10 @@ const AddList = () => {
   const activeView = (
     <>
       <input type="text" value={value} onChange={(e)=>handleInputChange(e)} />
-      <button type="button" className={style.createList} onClick={()=>addNewList()}>Ajouter une liste</button>
-      <DeleteButton typeToDelete="addlist" action={updateview}/>
+      <div className={style.buttons}>
+        <button type="button" className={style.createList} onClick={()=>addNewList()}>Ajouter une liste</button>
+        <DeleteButton typeToDelete="addlist" action={updateview}/>
+      </div>
     </>
   )
 

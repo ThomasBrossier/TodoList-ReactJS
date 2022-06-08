@@ -7,9 +7,7 @@ const Main = () => {
   const lists = useSelector(state => state.lists)
   return (
     <div className={style.container}>
-      <div >
-         <TopBar/>
-      </div>
+      <TopBar/>    
       <div className={style.board}>
         {lists.map(list=> <TodoList key={list.id} id={list.id} tasks={list.tasks} title={list.title}/> )}
         </div> 

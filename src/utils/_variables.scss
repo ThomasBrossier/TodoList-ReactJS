@@ -1,3 +1,11 @@
+// scss Variables
+$xs:320px;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+
+
 :root {
 /* Global */
 --main : #244aed;
@@ -5,6 +13,8 @@
 --light :#f5f6fa ;
 --dark : #282828;
 --grey :#282828;
+--closeButton :rgba(255, 0, 0, 0.4);
+--closeButtonHover : rgba(250, 40, 40, 0.8) ;
 
 /* TodoList*/
 --todolist: #fcf1b5;
@@ -17,15 +27,8 @@
 --font-family : 'Poppins', sans-serif;
 
 /*Buttons*/
---btn-primary : ;
---btn-secondary : ;
-input{
-    border-radius: 6px ;
-}
-button{
-    border-radius: 7px;
-    padding: 0 0.8rem;
-    border: none;
-    background-color: none;
-}
+--addTaskButton : rgba(0,0,0,0.1);
+--hoverAddTaskButton : rgba(0,0,0, 0.2);
+
+
 }

@@ -1,20 +1,33 @@
+@use '../../utils/mixins';
+
 .todoTask{
+    @include mixins.large{
+
+      flex-flow: row nowrap;
+      width: 90%;
+      &:hover{
+        background-color: var(--todoTaskHover);    
+      }
+    }
     list-style: none;
     background-color: var(--todoTask);
     border-radius: 2px;
     padding:0.3rem;
-    margin: 0.3rem 0.2rem;
+    margin: 0.3rem 0;
     display: flex;
-    flex-flow: row nowrap;
+    width: 100%;
+    flex-flow: row-reverse nowrap;
     justify-content: space-between;
     align-items: center;
-    &:hover{
-      background-color: var(--todoTaskHover);
-    }
+    
     .checkTodo{
-        accent-color: var(--checkTask) ;
-        width: 1.3rem;
-        height: 1.3rem;
+        @include mixins.large{
+          width: 1.3rem;
+          height: 1.3rem;
+        }
+        accent-color: var(--checkTask);
+        width: 2rem;
+        height: 2rem;
         cursor: pointer;
         vertical-align: middle;
       }
