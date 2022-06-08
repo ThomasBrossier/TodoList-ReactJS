@@ -1,6 +1,6 @@
 import React from 'react'
 import style from './todoList.module.scss';
-import Todo from '../todo/Todo'; 
+import Todo from '../Todo/Todo'
 import DeleteButton from '../buttons/DeleteButton';
 //  import useModal from '../modal/useModal'
 // import Modal from '../modal/Modal';

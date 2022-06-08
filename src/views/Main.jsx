@@ -1,7 +1,7 @@
 import React from 'react'
 import style from './main.module.scss' 
-import TodoList from '../components/todoList/TodoList'
-import TopBar from '../components/todoList/TopBar'
+import TopBar from '../components/TodoList/TopBar'
+import TodoList from '../components/TodoList/TodoList'
 import { useSelector } from 'react-redux'
 const Main = () => {
   const lists = useSelector(state => state.lists)
