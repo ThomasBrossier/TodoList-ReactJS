@@ -9,7 +9,6 @@
     color: var(--font-dark);
       &:hover{
         background-color: none;
-        cursor: pointer;
         color : red;
       }
     }
@@ -17,4 +16,7 @@
     margin: 0 ; 
     background-color: var(--closeButton);
     color: white;  
+    &:hover{
+      cursor: pointer;
+    }
 }
