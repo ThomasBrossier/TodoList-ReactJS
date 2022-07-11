@@ -1,12 +1,13 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 import DeleteButton from '../buttons/DeleteButton';
 import style from "./todo.module.scss";
 import { removeTask, toggleTask } from '../../feature/todoList.slice';
 import { useSelector } from 'react-redux';
 
 
-const Todo = ({idTask,idList, title, done}) => {
+const Todo = ({idTask,idList, title}) => {
   const dispatch = useDispatch();
   const isTaskDone = useSelector(state=>{
     const indexList = state.lists.findIndex((list)=> list.id === idList)
@@ -30,4 +31,10 @@ const Todo = ({idTask,idList, title, done}) => {
   )
 }
 
+Todo.propTypes = {
+  idTask : PropTypes.number.isRequired,
+  idList: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  done : PropTypes.bool
+};
 export default Todo

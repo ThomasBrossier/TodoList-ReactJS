@@ -1,5 +1,6 @@
 import React from 'react'
 import style from './todoList.module.scss';
+import PropTypes from 'prop-types';
 import Todo from '../Todo/Todo'
 import DeleteButton from '../buttons/DeleteButton';
 //  import useModal from '../modal/useModal'
@@ -7,6 +8,8 @@ import DeleteButton from '../buttons/DeleteButton';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addTask } from '../../feature/todoList.slice';
+
+
 const TodoList = ({id, title,tasks}) => {
 
   // const { isShowing, toggle } = useModal();
@@ -21,7 +24,7 @@ const TodoList = ({id, title,tasks}) => {
   }
   const addTaskInState = (e)=>{
     e.stopPropagation();
-    if(addTaskInput !== "" ){
+    if(addTaskInput.trim() !== "" ){
       const payload = {
         id,
         task:{ id : Math.floor(Math.random()*1000000),
@@ -44,7 +47,7 @@ const TodoList = ({id, title,tasks}) => {
             <div className={style.todoList}>
                 <ul>
                   <>
-                    {tasks.map(task=> <Todo key={task.id} idTask={task.id} idList={id}title={task.title} done={task.done}/>)}
+                    {tasks.map(task=> <Todo key={task.id} idTask={task.id} idList={id}title={task.title}/>)}
                     <div className={style.addTask}>
                       {addTaskBloc ?
                        <>
@@ -70,4 +73,13 @@ const TodoList = ({id, title,tasks}) => {
   )
 }
 
+TodoList.propTypes = {
+  id : PropTypes.number.isRequired,
+  tasks: PropTypes.arrayOf(PropTypes.shape({
+    id :PropTypes.number.isRequired,
+    title : PropTypes.string.isRequired,
+    done : PropTypes.bool.isRequired
+  })).isRequired,
+  title: PropTypes.string.isRequired,
+};
 export default TodoList
