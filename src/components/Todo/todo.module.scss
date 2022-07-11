@@ -1,4 +1,4 @@
-@use '../../utils/mixins';
+@use '../../utils/mixins.scss';
 
 .todoTask{
     @include mixins.large{
