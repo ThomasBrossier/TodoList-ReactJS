@@ -1,5 +1,11 @@
+@use '../../utils/mixins';
 .header{
+    @include mixins.large{
+        position: relative;
+    }
     background-color: var(--main);
+    position: sticky;
+    top: 0;
     height:85px;
     width: 100vw;
     display: flex;
