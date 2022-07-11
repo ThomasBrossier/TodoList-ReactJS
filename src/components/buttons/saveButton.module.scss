@@ -14,4 +14,7 @@
     background: green;
     width: 65px;
     margin: 0 ; 
+    &:hover{
+      transform: scale(1.2);
+    }
 }
