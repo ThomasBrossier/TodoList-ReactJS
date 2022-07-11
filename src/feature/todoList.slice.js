@@ -8,11 +8,14 @@ export const todoListSlice = createSlice({
                    isLoaded : false
                  } ,
     reducers : {
-        callDatas : (state, action)=>{
-            state.lists = action.payload
+        loaded : (state, action)=>{
+            state.isLoaded = action.payload
         },
         addList : (state, action)=>{
             state.lists.push(action.payload);
+        },
+        addLists : (state, action)=>{
+            state.lists = action.payload ;
         },
         removeList :(state,action)=>{
             state.lists = state.lists.filter((list)=>list.id !== action.payload)
@@ -39,5 +42,5 @@ export const todoListSlice = createSlice({
     }
 })
 
-export const {callDatas,addList,removeList,incrementIdList,setCurrentList,addTask,removeTask, toggleTask} = todoListSlice.actions;
+export const {loaded,addLists,addList,removeList,incrementIdList,setCurrentList,addTask,removeTask, toggleTask} = todoListSlice.actions;
 export default todoListSlice.reducer
