@@ -1,5 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
+import PropTypes from 'prop-types';
 import style from './deleteButton.module.scss'
 import {removeList} from '../../feature/todoList.slice'
 
@@ -21,5 +22,12 @@ const DeleteButton = ({typeToDelete,idTask,idList, action }) => {
     <button className={style.btnDelete} onClick={(e)=>removeAction(e)}>X</button>
   )
 }
+
+DeleteButton.propTypes = {
+  typeToDelete : PropTypes.oneOf(['list','task','addlist']).isRequired,
+  idTask: PropTypes.number,
+  idList: PropTypes.number,
+  action : PropTypes.func
+};
 
 export default DeleteButton

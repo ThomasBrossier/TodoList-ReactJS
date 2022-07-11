@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import style from "./modal.module.scss"
+import PropTypes from 'prop-types';
 
 const Modal = ({ isShowing, hide, title , ...props }) =>
   isShowing
@@ -27,5 +28,12 @@ const Modal = ({ isShowing, hide, title , ...props }) =>
         document.body
       )
     : null;
+
+    Modal.propTypes = {
+      isShowing : PropTypes.bool.isRequired,
+      hide: PropTypes.func.isRequired,
+      title: PropTypes.string.isRequired,
+      children : PropTypes.node
+    };
 
 export default Modal;
