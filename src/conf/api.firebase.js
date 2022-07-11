@@ -5,3 +5,4 @@ const apiFirebase = axios.create({
 })
 
 export default apiFirebase;
+
