@@ -28,6 +28,9 @@ export const todoListSlice = createSlice({
         },
         addTask : (state, action)=>{
             const index = state.lists.findIndex((list)=> list.id === action.payload.id)
+            if(!state.lists[index].tasks){
+                state.lists[index].tasks = [];
+            }
             state.lists[index].tasks.push(action.payload.task)
         },
         removeTask : (state,action)=>{

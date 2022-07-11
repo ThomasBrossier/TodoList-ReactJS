@@ -17,7 +17,7 @@ const Main = () => {
     apiFirebase.get('todos.json')
     .then( response => {
       let lists = response.data ? response.data : [];
-      dispatch(addLists(lists))
+      dispatch(addLists(lists));
       dispatch(loaded(true))
     })
   }, [])

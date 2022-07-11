@@ -10,7 +10,7 @@ import { useDispatch } from 'react-redux';
 import { addTask } from '../../feature/todoList.slice';
 
 
-const TodoList = ({id, title,tasks}) => {
+const TodoList = ({id, title, tasks = []}) => {
 
   // const { isShowing, toggle } = useModal();
   const [addTaskBloc, showAddTaskBloc] = useState(false);
@@ -79,7 +79,7 @@ TodoList.propTypes = {
     id :PropTypes.number.isRequired,
     title : PropTypes.string.isRequired,
     done : PropTypes.bool.isRequired
-  })).isRequired,
+  })),
   title: PropTypes.string.isRequired,
 };
 export default TodoList
