@@ -1,0 +1,13 @@
+
+.loadingContainer{
+    min-height: 100% ;
+    background:white ;
+    display : flex ;
+    flex-direction: row;
+    justify-content : center;
+    align-items : center;
+    width: 100%;
+    img{
+        margin:auto;
+    }
+}
