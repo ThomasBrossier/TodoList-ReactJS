@@ -1,0 +1,17 @@
+@use '../../utils/mixins';
+
+ .btnSave{
+  @include mixins.large{
+    font-size: 1rem;
+    width: 50px;
+    padding: 0.5rem  0.7rem;
+      &:hover{
+        background-color: none;
+        cursor: pointer;
+        color : green;
+      }
+    }
+    background: green;
+    width: 65px;
+    margin: 0 ; 
+}
