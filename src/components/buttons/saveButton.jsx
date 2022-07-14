@@ -10,6 +10,7 @@ const SaveButton = () => {
   const saveTodos = ()=>{
     apiFirebase.put('todos.json', lists)
     .then(setSave(true))
+    .catch((error)=>console.error(error))
   }
   return (
     <>

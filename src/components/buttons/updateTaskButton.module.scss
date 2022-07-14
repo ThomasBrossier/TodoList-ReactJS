@@ -1,0 +1,23 @@
+@use '../../utils/mixins';
+
+.btnUpdate{
+    @include mixins.large{
+        font-size: 1rem;
+        width: 30px;
+       margin: 0;
+        background: none;
+        color: var(--font-dark);
+          &:hover{
+            background-color: none;
+            color : green;
+          }
+        }
+        width: 65px;
+        margin: 0 ; 
+        background-color: var(--closeButton);
+        color: white;  
+        &:hover{
+          cursor: pointer;
+        }
+    
+}

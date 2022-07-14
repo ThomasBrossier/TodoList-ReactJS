@@ -3,7 +3,8 @@
  .btnDelete{
   @include mixins.large{
     font-size: 1rem;
-    width: 50px;
+    width: 30px;
+    margin: 0;
     padding: 0.8rem  0.2rem;
     background: none;
     color: var(--font-dark);
