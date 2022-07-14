@@ -6,14 +6,17 @@
     width : 290px;
     max-height: 300px;
     transition: all 0.2s;
+    box-shadow: none;
     padding: 0.2rem;
     &:hover{
       transform: scale(1.05);
       transition: all 0.2s;
+      box-shadow: 0px 10px 20px 5px rgba(0, 0, 0, 0.4);
     }
   }
     width :100%;
     max-height: auto;
+    box-shadow: 0px 10px 20px 5px rgba(0, 0, 0, 0.4);
     padding: 1rem;
     background-color : var(--todolist);
     margin: 1rem 0;

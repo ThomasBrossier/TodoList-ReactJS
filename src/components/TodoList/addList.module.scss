@@ -4,7 +4,7 @@
     @include mixins.large {
         width : 30%;
         &:hover{
-            box-shadow: 0px 10px 20px 5px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 5px 15px 5px rgba(0, 0, 0, 0.4);
             cursor: pointer;
         }
     }
@@ -25,9 +25,7 @@
             display: flex;
             flex-flow: row nowrap;
             width: auto;
-            &:hover{
-                box-shadow: 0px 10px 20px 5px rgba(0, 0, 0, 0.2);
-            }
+            box-shadow: 0px 10px 20px 5px rgba(0, 0, 0, 0.4);
         }
         background-color: rgba(0,0,0,0.2);
         width: 100%;
@@ -56,6 +54,7 @@
         }
         .createList{
             @include mixins.large{
+                cursor: pointer;
                 padding: 0.2rem 1.9rem;
                 margin: 0 1rem;
                 &:hover{
