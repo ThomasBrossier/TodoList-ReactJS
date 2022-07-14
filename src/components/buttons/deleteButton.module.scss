@@ -1,13 +1,13 @@
 @use '../../utils/mixins';
 
- .btnDelete{
+ .btn{
   @include mixins.large{
     font-size: 1rem;
     width: 30px;
     margin: 0;
     padding: 0.8rem  0.2rem;
     background: none;
-    color: var(--font-dark);
+    
       &:hover{
         background-color: none;
         color : red;
@@ -20,4 +20,10 @@
     &:hover{
       cursor: pointer;
     }
+}
+.btnDark{
+  color: var(--font-dark);
+}
+.btnLight{
+  color: var(--font-light);
 }

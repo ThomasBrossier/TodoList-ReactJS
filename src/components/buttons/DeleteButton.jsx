@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import style from './deleteButton.module.scss'
 import {removeList} from '../../feature/todoList.slice'
 
-const DeleteButton = ({typeToDelete,idTask,idList, action }) => {
+const DeleteButton = ({typeToDelete,color='dark',idList, action }) => {
   const dispatch = useDispatch();
 
   const removeAction = (e)=>{
@@ -19,7 +19,7 @@ const DeleteButton = ({typeToDelete,idTask,idList, action }) => {
     }  
   }
   return (
-    <button className={style.btnDelete} onClick={(e)=>removeAction(e)}>X</button>
+    <button className={`${style.btn} ${color === 'light'? style.btnLight : style.btnDark}`} onClick={(e)=>removeAction(e)}>X</button>
   )
 }
 

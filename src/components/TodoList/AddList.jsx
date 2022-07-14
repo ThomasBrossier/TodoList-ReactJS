@@ -33,8 +33,8 @@ const AddList = () => {
     <>
       <input type="text" value={value} onChange={(e)=>handleInputChange(e)} />
       <div className={style.buttons}>
-        <button type="button" className={style.createList} onClick={()=>addNewList()}>Ajouter une liste</button>
-        <DeleteButton typeToDelete="addlist" action={updateview}/>
+        <button type="button" className={style.createList} onClick={()=>addNewList()}><i className="fa-solid fa-plus"></i> Ajouter une liste</button>
+        <DeleteButton typeToDelete="addlist" color='light' action={updateview}/>
       </div>
     </>
   )

@@ -1,6 +1,5 @@
 import React ,{useEffect} from 'react'
 import style from './main.module.scss' 
-import TopBar from '../components/TodoList/TopBar'
 import TodoList from '../components/TodoList/TodoList'
 import { useSelector } from 'react-redux'
 import Loading from '../components/loading/Loading'
@@ -21,10 +20,9 @@ const Main = () => {
       dispatch(loaded(true))
     })
   }, [])
-  
+
   return (
     <div className={style.container}>
-      <TopBar/> 
       <div className={style.board}>
         {isLoaded ? lists.map(list=> <TodoList key={list.id} id={list.id} tasks={list.tasks} title={list.title}/> ): <Loading/>}
         </div> 
