@@ -2,11 +2,12 @@
 .header{
     @include mixins.large{
         position: relative;
+        height:85px;
     }
     background-color: var(--main);
     position: sticky;
     top: 0;
-    height:85px;
+    height: auto;
     width: 100vw;
     display: flex;
     flex-flow: row nowrap;

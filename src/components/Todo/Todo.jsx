@@ -59,7 +59,7 @@ const Todo = ({idTask,idList, title}) => {
          <span className={isTaskDone ? style.crossedOut : style.normal}>{title}</span>
          <div className={style.buttons}>
          <UpdateButton action={updateCurrentTask}/>
-        <DeleteButton typeToDelete="task" idList={idList} idTask={idTask} action={(e)=>removeCurrentTask(e)}/> 
+        <DeleteButton typeToDelete="task" idList={idList} color='light' idTask={idTask} action={(e)=>removeCurrentTask(e)}/> 
          </div>
         </>   
         }

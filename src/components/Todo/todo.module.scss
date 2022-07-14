@@ -9,6 +9,9 @@
         background-color: var(--todoTaskHover);    
       }
     }
+    button{
+      margin :0 0.5rem
+    }
     list-style: none;
     background-color: var(--todoTask);
     border-radius: 2px;

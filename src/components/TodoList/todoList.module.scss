@@ -26,6 +26,9 @@
     justify-content: flex-start;
 
     .header{
+        button{
+          margin :0 0.5rem
+        }
         display: inline-flex;
         color: var(--primary);
         align-items: center;
