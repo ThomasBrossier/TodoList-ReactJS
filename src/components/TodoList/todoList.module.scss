@@ -4,7 +4,7 @@
   @include mixins.large{
     margin: 1rem;
     width : 290px;
-    max-height: 300px;
+    height: 300px;
     transition: all 0.2s;
     box-shadow: none;
     padding: 0.2rem;
@@ -28,7 +28,6 @@
     .header{
         display: inline-flex;
         color: var(--primary);
-        margin-bottom: 1rem;
         align-items: center;
         padding: 0.5rem;
         .listbuttons{

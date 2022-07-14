@@ -9,6 +9,8 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addTask ,updateList} from '../../feature/todoList.slice';
 import UpdateButton from '../buttons/UpdateButton';
+import ProgressBar from '../progressBar/ProgressBar';
+import { useEffect } from 'react';
 
 
 const TodoList = ({id, title, tasks = []}) => {
@@ -16,6 +18,7 @@ const TodoList = ({id, title, tasks = []}) => {
   // const { isShowing, toggle } = useModal();
   const [isUpdating, setUpdating] = useState(false);
   const [listTitleInput, setListTitle] = useState(title);
+  const [progress, setProgress] = useState(0)
   const [addTaskBloc, showAddTaskBloc] = useState(false);
   const [addTaskInput, setAddTaskInput]= useState("")
   const dispatch = useDispatch();
@@ -25,6 +28,21 @@ const TodoList = ({id, title, tasks = []}) => {
     showAddTaskBloc(false);
     setAddTaskInput("");
   }
+  const updateProgress = (tasks)=>{
+    const total = tasks.length;
+    let done = 0;
+    for(let i = 0 ; i < total ; i++){
+      if(tasks[i].done === true ){
+        done++
+      }
+    }
+    return done * 100 /total
+  }
+  useEffect(()=>{
+    
+    setProgress(updateProgress(tasks))
+  },[tasks])
+
   const addTaskInState = (e)=>{
     e.stopPropagation();
     if(addTaskInput.trim() !== "" ){
@@ -77,6 +95,7 @@ const TodoList = ({id, title, tasks = []}) => {
               
                   
             </div>
+            <ProgressBar progress={progress} />
             <div className={style.todoList}>
                 <ul>
                   <>
