@@ -5,7 +5,7 @@ import DeleteButton from '../buttons/DeleteButton';
 import style from "./todo.module.scss";
 import { removeTask, toggleTask, updateTask} from '../../feature/todoList.slice';
 import { useSelector } from 'react-redux';
-import UpdateTaskButton from '../buttons/UpdateTaskButton';
+import UpdateButton from '../buttons/UpdateButton';
 
 
 const Todo = ({idTask,idList, title}) => {
@@ -51,15 +51,14 @@ const Todo = ({idTask,idList, title}) => {
         <>
           <input className={style.normal} value={inputTaskValue} onChange={handleChange} />
           <div className={style.buttons}>
-          <UpdateTaskButton action={updateCurrentTask} />
-          <DeleteButton typeToDelete="task" idList={idList} idTask={idTask} action={(e)=>removeCurrentTask(e)}/>  
+          <UpdateButton action={updateCurrentTask} /> 
           </div>
         </> 
         :
         <>
          <span className={isTaskDone ? style.crossedOut : style.normal}>{title}</span>
          <div className={style.buttons}>
-         <UpdateTaskButton action={updateCurrentTask}/>
+         <UpdateButton action={updateCurrentTask}/>
         <DeleteButton typeToDelete="task" idList={idList} idTask={idTask} action={(e)=>removeCurrentTask(e)}/> 
          </div>
         </>   

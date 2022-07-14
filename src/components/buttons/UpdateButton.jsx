@@ -1,5 +1,5 @@
 import React from 'react'
-import style from './updateTaskButton.module.scss'
+import style from './updateButton.module.scss'
 
 const UpdateTaskButton = ({action}) => {
 

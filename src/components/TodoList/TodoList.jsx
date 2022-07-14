@@ -7,12 +7,15 @@ import DeleteButton from '../buttons/DeleteButton';
 // import Modal from '../modal/Modal';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addTask } from '../../feature/todoList.slice';
+import { addTask ,updateList} from '../../feature/todoList.slice';
+import UpdateButton from '../buttons/UpdateButton';
 
 
 const TodoList = ({id, title, tasks = []}) => {
 
   // const { isShowing, toggle } = useModal();
+  const [isUpdating, setUpdating] = useState(false);
+  const [listTitleInput, setListTitle] = useState(title);
   const [addTaskBloc, showAddTaskBloc] = useState(false);
   const [addTaskInput, setAddTaskInput]= useState("")
   const dispatch = useDispatch();
@@ -36,13 +39,43 @@ const TodoList = ({id, title, tasks = []}) => {
       dispatch(addTask(payload));
     }
   }
+  const UpdateListTitle = (e)=>{
+    e.stopPropagation();
+    const payload = {
+      idList : id, 
+      title : listTitleInput
+    }
+    if(isUpdating){
+      dispatch(updateList(payload))
+      setUpdating(false)
+    }else{
+      setUpdating(true)
+    }
+  } 
   return (
     
     <div className={style.container}>
         
             <div className={style.header}>
-              <div className={style.title}>{title}</div>
-                  <DeleteButton idList={id} typeToDelete="list" />
+              {isUpdating ? 
+            <>
+              <input type="text" value={listTitleInput} onChange={(e)=>setListTitle(e.target.value)} />
+              <div className={style.listbuttons}>
+                <UpdateButton action={UpdateListTitle} />
+              </div>
+            </>  
+            :
+            <>
+              <span className={style.title}>{title}</span>
+              <div className={style.listbuttons}>
+                <UpdateButton action={UpdateListTitle} />
+                <DeleteButton idList={id} typeToDelete="list" />
+              </div>
+            </>
+            
+            }
+              
+                  
             </div>
             <div className={style.todoList}>
                 <ul>
