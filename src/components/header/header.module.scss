@@ -3,6 +3,18 @@
     @include mixins.large{
         position: relative;
         height:85px;
+        flex-flow: row nowrap;
+        padding: 0 2rem;
+        .buttons{
+          margin-left: 2rem ;
+        }
+    }
+    .buttons{
+        display: flex;
+        flex-flow:  row nowrap;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
     }
     background-color: var(--main);
     position: sticky;
@@ -10,10 +22,10 @@
     height: auto;
     width: 100vw;
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     align-items: center;
     justify-content: space-between;
-    padding: 0 2rem;
+    padding :  1rem 2rem;
     color: var(--font-light);
     font-weight: bold;
 }

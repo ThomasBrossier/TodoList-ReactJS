@@ -19,7 +19,7 @@ const DeleteButton = ({typeToDelete,color='dark',idList, action }) => {
     }  
   }
   return (
-    <button className={`${style.btn} ${color === 'light'? style.btnLight : style.btnDark}`} onClick={(e)=>removeAction(e)}>X</button>
+    <button className={`${style.btn} ${color === 'light'? style.btnLight : null}`} onClick={(e)=>removeAction(e)}>X</button>
   )
 }
 

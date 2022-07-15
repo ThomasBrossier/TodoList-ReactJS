@@ -87,7 +87,7 @@ const TodoList = ({id, title, tasks = []}) => {
               <span className={style.title}>{title}</span>
               <div className={style.listbuttons}>
                 <UpdateButton action={UpdateListTitle} />
-                <DeleteButton idList={id} color='light' typeToDelete="list" />
+                <DeleteButton idList={id} typeToDelete="list" />
               </div>
             </>
             

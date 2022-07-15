@@ -8,8 +8,10 @@ const Header = () => {
   return (
     <div className={style.header}>
       <Logo/>
-      <AddList/>
-      <SaveButton/>
+      <div className={style.buttons}>
+        <AddList/>  
+        <SaveButton/>
+      </div>
     </div>
   )
 }
