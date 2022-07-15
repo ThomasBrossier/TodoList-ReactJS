@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import style from './saveButton.module.scss'
 import apiFirebase from '../../conf/api.firebase';
 import { useSelector } from 'react-redux/es/exports';
-import SnackBarSave from '../snackBar/snackBarSave';
+import SnackBarCall from '../snackBar/snackBarCall';
 
 const SaveButton = () => {
   const [open, setOpen] = useState(false);
@@ -11,16 +11,16 @@ const SaveButton = () => {
   const lists = useSelector(state => state.lists)
 
   const saveTodos = ()=>{
-    apiFirebase.put('todos.json', lists)
-    .then(setOpen(true))
+    apiFirebase.put('lists.json', lists)
     .catch((error)=>setError(error))
+    .finally(()=> setOpen(true))
   }
   return (
     <>
     <button type='button' onClick={()=>saveTodos()} className={style.btnSave}>
       <img src="./svg/save.svg" alt='save'/>
     </button>
-    {open ? <SnackBarSave open={open} setOpen={setOpen} error={error} duration={duration}/> : ""}
+    {open ? <SnackBarCall open={open} message={'Vos listes ont été sauvegardé !'} setError={setError} setOpen={setOpen} error={error} duration={duration}/> : ""}
     </>
   )
 }
