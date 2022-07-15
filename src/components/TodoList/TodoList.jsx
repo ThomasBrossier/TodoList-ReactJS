@@ -76,8 +76,13 @@ const TodoList = ({id, title, tasks = []}) => {
     }
   }
   const EnterkeyPress = (e)=>{
+    
     if(e.key === 'Enter'){
-      UpdateListTitle(e)
+      if(e.target.className === 'listTitle'){
+        UpdateListTitle(e)
+      }else{
+        addTaskInState(e)
+      }
     }
   }
   return (
@@ -87,7 +92,7 @@ const TodoList = ({id, title, tasks = []}) => {
             <div className={style.header} onBlur={(e)=>changeView(e)}>
               {isUpdating ? 
             <>
-              <input autoFocus type="text" value={listTitleInput} onKeyPress={(e)=>EnterkeyPress(e)} onChange={(e)=>setListTitle(e.target.value)} />
+              <input className='listTitle'autoFocus type="text" value={listTitleInput} onKeyPress={(e)=>EnterkeyPress(e)} onChange={(e)=>setListTitle(e.target.value)} />
               <div className={style.listbuttons}>
                 <UpdateButton action={UpdateListTitle} />
               </div>
@@ -113,7 +118,7 @@ const TodoList = ({id, title, tasks = []}) => {
                     <div className={style.addTask}>
                       {addTaskBloc ?
                        <>
-                          <input type="text" value={addTaskInput} onChange={(e)=>setAddTaskInput(e.target.value)} onClick={(e)=>e.stopPropagation()}placeholder="" />
+                          <input type="text" value={addTaskInput} onKeyPress={(e)=>EnterkeyPress(e)} onChange={(e)=>setAddTaskInput(e.target.value)} onClick={(e)=>e.stopPropagation()}placeholder="" />
                           <div className={style.buttons}>
                             <button type="button" className={style.addTaskButton} onClick={(e)=>addTaskInState(e)}>Ajouter une tâche</button> 
                             <button type="button" className={style.quitButton} onClick={(e)=>quitAddTask(e)}>Quitter</button>
