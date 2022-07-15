@@ -19,7 +19,6 @@ const Todo = ({idTask,idList, title}) => {
   })
   const handleChange = (e)=>{
     setInputTaskValue(e.target.value)
-    console.log(inputTaskValue)
   }
   const removeCurrentTask = (e) => {
     e.stopPropagation();
@@ -49,12 +48,17 @@ const changeView = (event)=>{
     setUpdating(false)
   }
 }
+const EnterkeyPress = (e)=>{
+  if(e.key === 'Enter'){
+    updateCurrentTask(e)
+  }
+}
   return (
     <li className={style.todoTask} onBlur={(e)=>changeView(e)}>
         <input className={style.checkTodo} type="checkbox"  checked={isTaskDone}  onChange={e=>toggleCurrentTask(e)} /> 
         {isUpdating ?
         <>
-          <input autoFocus className={style.normal} value={inputTaskValue} onChange={handleChange} />
+          <input autoFocus className={style.normal} onKeyPress={(e)=>{EnterkeyPress(e)}} value={inputTaskValue} onChange={handleChange} />
           <div className={style.buttons}>
           <UpdateButton action={updateCurrentTask} /> 
           </div>

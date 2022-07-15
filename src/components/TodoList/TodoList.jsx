@@ -75,6 +75,11 @@ const TodoList = ({id, title, tasks = []}) => {
       setUpdating(false)
     }
   }
+  const EnterkeyPress = (e)=>{
+    if(e.key === 'Enter'){
+      UpdateListTitle(e)
+    }
+  }
   return (
     
     <div className={style.container}>
@@ -82,7 +87,7 @@ const TodoList = ({id, title, tasks = []}) => {
             <div className={style.header} onBlur={(e)=>changeView(e)}>
               {isUpdating ? 
             <>
-              <input autoFocus type="text" value={listTitleInput}  onChange={(e)=>setListTitle(e.target.value)} />
+              <input autoFocus type="text" value={listTitleInput} onKeyPress={(e)=>EnterkeyPress(e)} onChange={(e)=>setListTitle(e.target.value)} />
               <div className={style.listbuttons}>
                 <UpdateButton action={UpdateListTitle} />
               </div>

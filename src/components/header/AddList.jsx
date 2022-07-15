@@ -14,8 +14,9 @@ const AddList = () => {
     setActive(false)
   }
   const addNewList = (e)=>{
-    e.preventDefault()
-    if(value === ""){
+    e.preventDefault();
+    if (value.trim() === ""){
+      setValue("")
       return
     }
     const list = {
@@ -28,16 +29,21 @@ const AddList = () => {
     dispatch(addList(list))
   }
   const handleInputChange=(e)=>{
-    setValue(e.target.value.trim())
+    setValue(e.target.value)
   }
   const changeView = (event)=>{
     if (!event.currentTarget.contains(event.relatedTarget)) {
       setActive(false)
     }
   }
+  const EnterkeyPress = (e)=>{
+    if(e.key === 'Enter'){
+      addNewList(e)
+    }
+  }
   const activeView = (
     <>
-      <input autoFocus type="text" value={value} onChange={(e)=>handleInputChange(e)} />
+      <input autoFocus type="text" value={value} onKeyPress={(e)=>EnterkeyPress(e)} onChange={(e)=>handleInputChange(e)} />
       <div className={style.buttons}>
         <button type="button" id='addListButton' className={style.createList} onClick={(e)=>addNewList(e)}><i className="fa-solid fa-plus"></i> Ajouter une liste</button>
         <DeleteButton typeToDelete="addlist" color='light' action={updateview}/>
