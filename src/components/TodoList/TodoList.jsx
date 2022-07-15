@@ -7,7 +7,7 @@ import DeleteButton from '../buttons/DeleteButton';
 // import Modal from '../modal/Modal';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addTask ,updateList} from '../../feature/todoList.slice';
+import { updateList,addTask} from '../../feature/list.slice';
 import UpdateButton from '../buttons/UpdateButton';
 import ProgressBar from '../progressBar/ProgressBar';
 import { useEffect } from 'react';

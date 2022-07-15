@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import DeleteButton from '../buttons/DeleteButton';
 import style from "./todo.module.scss";
-import { removeTask, toggleTask, updateTask} from '../../feature/todoList.slice';
+import { removeTask, toggleTask, updateTask} from '../../feature/list.slice';
 import { useSelector } from 'react-redux';
 import UpdateButton from '../buttons/UpdateButton';
 
@@ -13,9 +13,9 @@ const Todo = ({idTask,idList, title}) => {
   const [isUpdating, setUpdating] = useState(false)
   const [inputTaskValue, setInputTaskValue] = useState(title)
   const isTaskDone = useSelector(state=>{
-    const indexList = state.lists.findIndex((list)=> list.id === idList)
-    const indexTask = state.lists[indexList].tasks.findIndex((task)=> task.id === idTask)
-    return state.lists[indexList].tasks[indexTask].done                                
+    const indexList = state.todos.lists.findIndex((list)=> list.id === idList)
+    const indexTask = state.todos.lists[indexList].tasks.findIndex((task)=> task.id === idTask)
+    return state.todos.lists[indexList].tasks[indexTask].done                                
   })
   const handleChange = (e)=>{
     setInputTaskValue(e.target.value)

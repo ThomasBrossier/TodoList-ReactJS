@@ -2,7 +2,7 @@
 .header{
     @include mixins.large{
         position: relative;
-        height:85px;
+        min-height:85px;
         flex-flow: row nowrap;
         padding: 0 2rem;
         .buttons{

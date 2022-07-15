@@ -1,6 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import todoListReducer from "../feature/todoList.slice";
+import listReducer from "../feature/list.slice";
+import errorReducer from "../feature/error.slice";
+
 
 export default configureStore({
-    reducer : todoListReducer 
+    reducer : {
+       todos: listReducer,
+       errors : errorReducer,
+    } 
 })

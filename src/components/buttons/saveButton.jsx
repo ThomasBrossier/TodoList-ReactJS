@@ -8,7 +8,7 @@ const SaveButton = () => {
   const [open, setOpen] = useState(false);
   const [error,setError] = useState(null)
   const duration = 3000;
-  const lists = useSelector(state => state.lists)
+  const lists = useSelector(state => state.todos.lists)
 
   const saveTodos = ()=>{
     apiFirebase.put('lists.json', lists)

@@ -5,22 +5,21 @@ import { useSelector } from 'react-redux'
 import Loading from '../components/loading/Loading'
 import apiFirebase from '../conf/api.firebase';
 import { useDispatch } from 'react-redux';
-import { loaded,addLists } from '../feature/todoList.slice'
+import { importLists,loaded } from '../feature/list.slice'
 import SnackBarCall from '../components/snackBar/snackBarCall' 
-import { datas } from '../fakedata'
 
 const Main = () => {
-  const isLoaded = useSelector(state=> state.isLoaded);
+  const isLoaded = useSelector(state=> state.todos.isLoaded);
   const [error, setError] = useState(null);
   const [open, setOpen] = useState(false);
-  const lists = useSelector(state => state.lists)
+  const lists = useSelector(state => state.todos.lists)
   const dispatch = useDispatch();
 
   useEffect(() => {
     apiFirebase.get('lists.json')
     .then( response => {
       let lists = response.data ? response.data : [];
-      dispatch(addLists(lists));
+      dispatch(importLists(lists));
       dispatch(loaded(true))
     })
     .catch((error=>setError(error)))

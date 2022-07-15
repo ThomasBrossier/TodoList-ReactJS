@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import PropTypes from 'prop-types';
 import style from './deleteButton.module.scss'
-import {removeList} from '../../feature/todoList.slice'
+import {removeList} from '../../feature/list.slice'
 
 const DeleteButton = ({typeToDelete,color='dark',idList, action }) => {
   const dispatch = useDispatch();
