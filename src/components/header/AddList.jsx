@@ -13,7 +13,8 @@ const AddList = () => {
     e.stopPropagation();
     setActive(false)
   }
-  const addNewList = ()=>{
+  const addNewList = (e)=>{
+    e.preventDefault()
     if(value === ""){
       return
     }
@@ -29,11 +30,16 @@ const AddList = () => {
   const handleInputChange=(e)=>{
     setValue(e.target.value.trim())
   }
+  const changeView = (event)=>{
+    if (!event.currentTarget.contains(event.relatedTarget)) {
+      setActive(false)
+    }
+  }
   const activeView = (
     <>
-      <input type="text" value={value} onChange={(e)=>handleInputChange(e)} />
+      <input autoFocus type="text" value={value} onChange={(e)=>handleInputChange(e)} />
       <div className={style.buttons}>
-        <button type="button" className={style.createList} onClick={()=>addNewList()}><i className="fa-solid fa-plus"></i> Ajouter une liste</button>
+        <button type="button" id='addListButton' className={style.createList} onClick={(e)=>addNewList(e)}><i className="fa-solid fa-plus"></i> Ajouter une liste</button>
         <DeleteButton typeToDelete="addlist" color='light' action={updateview}/>
       </div>
     </>
@@ -41,7 +47,7 @@ const AddList = () => {
 
 
   return (
-    <div className={active ? style.containerActive : style.container} onClick={()=>setActive(true)}>
+    <div className={active ? style.containerActive : style.container} onBlur={(e)=>changeView(e)} onClick={()=>setActive(true)}>
         { !active ? <span>+ Ajouter une liste </span> : activeView}
     </div>
   )

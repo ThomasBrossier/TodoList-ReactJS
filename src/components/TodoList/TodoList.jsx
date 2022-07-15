@@ -70,14 +70,19 @@ const TodoList = ({id, title, tasks = []}) => {
       setUpdating(true)
     }
   } 
+  const changeView = (event)=>{
+    if (!event.currentTarget.contains(event.relatedTarget)) {
+      setUpdating(false)
+    }
+  }
   return (
     
     <div className={style.container}>
         
-            <div className={style.header}>
+            <div className={style.header} onBlur={(e)=>changeView(e)}>
               {isUpdating ? 
             <>
-              <input type="text" value={listTitleInput} onChange={(e)=>setListTitle(e.target.value)} />
+              <input autoFocus type="text" value={listTitleInput}  onChange={(e)=>setListTitle(e.target.value)} />
               <div className={style.listbuttons}>
                 <UpdateButton action={UpdateListTitle} />
               </div>

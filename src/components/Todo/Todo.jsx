@@ -44,12 +44,17 @@ const Todo = ({idTask,idList, title}) => {
         setUpdating(true)
     }
 }
+const changeView = (event)=>{
+  if (!event.currentTarget.contains(event.relatedTarget)) {
+    setUpdating(false)
+  }
+}
   return (
-    <li className={style.todoTask}>
+    <li className={style.todoTask} onBlur={(e)=>changeView(e)}>
         <input className={style.checkTodo} type="checkbox"  checked={isTaskDone}  onChange={e=>toggleCurrentTask(e)} /> 
         {isUpdating ?
         <>
-          <input className={style.normal} value={inputTaskValue} onChange={handleChange} />
+          <input autoFocus className={style.normal} value={inputTaskValue} onChange={handleChange} />
           <div className={style.buttons}>
           <UpdateButton action={updateCurrentTask} /> 
           </div>

@@ -12,8 +12,9 @@
             color : green;
           }
         }
-        width: 65px;
+        width: auto;
         margin: 0 ; 
+        padding: 0.4rem 0.48rem;
         background-color: var(--updateButton);
         color: white;  
         &:hover{
