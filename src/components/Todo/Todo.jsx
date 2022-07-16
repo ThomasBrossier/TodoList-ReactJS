@@ -3,13 +3,17 @@ import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import DeleteButton from '../buttons/DeleteButton';
 import style from "./todo.module.scss";
-import { removeTask, toggleTask, updateTask} from '../../feature/list.slice';
+import { removeTask, toggleTask, updateTask, clearErrors, addErrors} from '../../feature/list.slice';
 import { useSelector } from 'react-redux';
 import UpdateButton from '../buttons/UpdateButton';
+import Input from '../input/Input';
 
 
 const Todo = ({idTask,idList, title}) => {
   const dispatch = useDispatch();
+  const maxLenght = 40
+  const minLenght = 3
+  let errors = useSelector(state=> state.todos.errors)
   const [isUpdating, setUpdating] = useState(false)
   const [inputTaskValue, setInputTaskValue] = useState(title)
   const isTaskDone = useSelector(state=>{
@@ -19,6 +23,7 @@ const Todo = ({idTask,idList, title}) => {
   })
   const handleChange = (e)=>{
     setInputTaskValue(e.target.value)
+    validateChange(e.target.value)
   }
   const removeCurrentTask = (e) => {
     e.stopPropagation();
@@ -28,10 +33,35 @@ const Todo = ({idTask,idList, title}) => {
   const toggleCurrentTask = (e)=>{
     dispatch(toggleTask({idList,idTask}));
   }
-
+  const validateChange = (value)=>{
+    dispatch(clearErrors())
+    let error=[]
+    if(value.length > maxLenght){
+      error.push(' Le titre ne peux pas dépasser 40 caractères')
+    }
+    dispatch(addErrors(error))
+    return error
+  }
+  const validateSubmit = ()=>{
+    let error = validateChange(inputTaskValue);
+    if (inputTaskValue.trim() === ""){
+      setInputTaskValue("")
+      error.push('Veuillez saisir un titre')
+    }
+    if(inputTaskValue.trim().length < minLenght){
+      error.push(' Le titre doit faire au moins 3 caractères')
+    }
+    return error
+  }
+  
   const updateCurrentTask = (e)=>{
     e.stopPropagation();
     if(isUpdating){
+      let error = validateSubmit('list')
+      if(error.length > 0 ){
+        dispatch(addErrors(error))
+        return
+      }
         const payload = {
             idList, 
             idTask, 
@@ -48,7 +78,7 @@ const changeView = (event)=>{
     setUpdating(false)
   }
 }
-const EnterkeyPress = (e)=>{
+const enterkeyPress = (e)=>{
   if(e.key === 'Enter'){
     updateCurrentTask(e)
   }
@@ -58,7 +88,7 @@ const EnterkeyPress = (e)=>{
         <input className={style.checkTodo} type="checkbox"  checked={isTaskDone}  onChange={e=>toggleCurrentTask(e)} /> 
         {isUpdating ?
         <>
-          <input autoFocus className={style.normal} onKeyPress={(e)=>{EnterkeyPress(e)}} value={inputTaskValue} onChange={handleChange} />
+          <Input  value={inputTaskValue} id='listTitle' className={style.normal}  handleChange={handleChange} errors={errors} onKeyPress={enterkeyPress} />
           <div className={style.buttons}>
           <UpdateButton action={updateCurrentTask} /> 
           </div>

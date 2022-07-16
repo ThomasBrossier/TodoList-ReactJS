@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Input = ({value, handleChange, id = null, errors, onKeyPress, ...props }) => {
+const Input = ({value, handleChange, id = null, errors,className = '', onKeyPress, ...props }) => {
     const Container = {
         width:'100%',
         display:'flex',
@@ -17,7 +17,7 @@ const Input = ({value, handleChange, id = null, errors, onKeyPress, ...props }) 
       }
   return (
     <div style={Container}>
-        <input id={id} autoFocus style={InputStyle}  minLength="2" type="text" value={value} onKeyPress={(e)=>onKeyPress(e)} onChange={(e)=>{
+        <input id={id} autoFocus style={InputStyle} className={className} minLength="2" type="text" value={value} onKeyPress={(e)=>onKeyPress(e)} onChange={(e)=>{
                                                                                                                                 handleChange(e)
                                                                                                                                 }} />
        {errors === [] ? null : <div style={errorStyle}>
