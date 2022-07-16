@@ -16,6 +16,7 @@
     background-color: var(--todoTask);
     border-radius: 2px;
     padding:0.3rem;
+    
     margin: 0.3rem 0;
     display: flex;
     width: 100%;
@@ -39,6 +40,7 @@
     }
     .normal{
       text-decoration: none;
+      word-wrap:break-word;
     }
     .buttons{
       display: flex;

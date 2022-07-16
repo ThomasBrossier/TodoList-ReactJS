@@ -4,7 +4,8 @@ export const listSlice = createSlice({
     name : "Lists",
     initialState : {
         lists : [] ,
-        isLoaded:false                  
+        isLoaded:false, 
+        errors : []                 
     },
     reducers : {
         loaded : (state, action)=>{
@@ -49,9 +50,15 @@ export const listSlice = createSlice({
             const indexList = state.lists.findIndex((list)=> list.id === action.payload.idList)
             const indexTask = state.lists[indexList].tasks.findIndex((task => task.id === action.payload.idTask))
             state.lists[indexList].tasks[indexTask].done = !state.lists[indexList].tasks[indexTask].done;
+        },
+        addErrors : (todos, action)=>{
+            todos.errors = [...action.payload]
+        },
+        clearErrors : (state)=>{
+            state.errors = []
         }
     }
 })
 
-export const {loaded, importLists,addList,removeList,updateList,incrementIdList,setCurrentList,addTask,updateTask,removeTask, toggleTask} = listSlice.actions;
+export const {loaded, importLists,addList,removeList,updateList,incrementIdList,setCurrentList,addTask,updateTask,removeTask, toggleTask,addErrors,clearErrors} = listSlice.actions;
 export default listSlice.reducer
