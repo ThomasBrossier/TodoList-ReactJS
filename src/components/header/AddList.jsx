@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addList, incrementIdList, clearErrors, addErrors } from '../../feature/list.slice';
@@ -17,9 +17,6 @@ const AddList = () => {
     e.stopPropagation();
     setActive(false)
   }
-  // useEffect(()=>{
-  //   console.log(errors)
-  // },[errors])
 
   const addNewList = (e)=>{
     e.preventDefault();

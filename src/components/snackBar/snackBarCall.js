@@ -12,7 +12,7 @@ export default function SnackBarCall({duration, setError, open,message=null, err
   React.useEffect(()=>{
     setOpen(true);
     console.log('use')
-  },[])
+  },[setOpen])
 
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {

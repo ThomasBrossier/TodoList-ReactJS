@@ -37,6 +37,8 @@ const TodoList = ({id, title, tasks = []}) => {
   useEffect(()=>{
     bottomRef.current?.scrollIntoView({behavior: 'smooth'});
   },[tasks])
+
+  
   const handleChange = (e)=>{
       if (e.target.id === "listTitle"){
         setListTitle(e.target.value)
