@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 import Loading from '../components/loading/Loading'
 import apiFirebase from '../conf/api.firebase';
 import { useDispatch } from 'react-redux';
-import SnackBarCall from '../components/snackBar/SnackBarCall'
+import SnackBarCall from '../components/snackBar/snackBarCall'
 import { importLists,loaded } from '../feature/list.slice'
 
 const Main = () => {
@@ -30,7 +30,7 @@ const Main = () => {
       <div className={style.board}>
         <>
         {isLoaded ? lists.map(list=> <TodoList key={list.id} id={list.id} tasks={list.tasks} title={list.title}/> ): <Loading/>}
-         {/* { error ? <SnackBarCall  setError={setError} open={open} setOpen={setOpen} error={error} /> : ''}  */}
+         { error ? <SnackBarCall  setError={setError} open={open} setOpen={setOpen} error={error} /> : ''} 
         </>
         </div> 
     </div>
