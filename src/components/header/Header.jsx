@@ -1,7 +1,7 @@
 import React from 'react'
 import style from './header.module.scss'
 import Logo from './Logo'
-import SaveButton from '../buttons/SaveButton'
+import SaveButton from '../buttons/saveButton'
 import AddList from './AddList'
 
 const Header = () => {
