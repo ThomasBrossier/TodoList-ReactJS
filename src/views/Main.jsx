@@ -6,7 +6,7 @@ import Loading from '../components/loading/Loading'
 import apiFirebase from '../conf/api.firebase';
 import { useDispatch } from 'react-redux';
 import { importLists,loaded } from '../feature/list.slice'
-import SnackBarCall from '../components/snackBar/snackBarCall' 
+import SnackBarCall from '../components/snackBar/SnackBarCall' 
 
 const Main = () => {
   const isLoaded = useSelector(state=> state.todos.isLoaded);
