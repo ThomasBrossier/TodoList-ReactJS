@@ -11,6 +11,7 @@ const SaveButton = () => {
   const duration = 3000;
   const lists = useSelector(state => state.todos.lists)
 
+  // Save Currents Todos & Tasks to API Firebase
   const saveTodos = ()=>{
     apiFirebase.put('lists.json', lists)
     .catch((error)=>setError(error))
